@@ -69,18 +69,105 @@
     <div class="container">
         <div class="row mt-4">
             <h2 class="col-md-12 text-center">
-                <b><font size="+6">NoisyBCT: Robust, Reactive and Temporally Consistent Robotic Imitation Learning with Noise Augmented Image Embeddings</font></b></br> 
+                <b><font size="+6">NoisyBCT: Robust and Reactive Imitation Learning from Image Sequences</font></b></br> 
             </h2>
         </div>
         <div class="row mt-4">
             <div class="col-md-10 col-lg-8 mx-auto">
                 <h3 class="mt-4 mb-2">Abstract</h3>
-                <p class="text-justify">
-                    Robotic imitation learning (IL) in dynamic environments—where object positions or external forces change unpredictably—poses a major challenge for current state-of-the-art methods. These methods often rely on multi-step, open-loop action execution for temporal consistency, but this approach hinders reactivity and adaptation under dynamic conditions. We propose \textit{Noise Augmented Behavior Cloning Transformer} (NoisyBCT), a robust and responsive IL method that predicts single-step actions based on a sequence of past image observations. To mitigate the susceptibility to covariate shift that arises from longer observation horizons, NoisyBCT injects adversarial noise into low-dimensional spatial image embeddings during training. This enhances robustness to out-of-distribution states while preserving semantic content. We evaluate NoisyBCT on three simulated manipulation tasks and one real-world task, each featuring dynamic disturbances. NoisyBCT consistently outperforms the vanilla BC Transformer and the state-of-the-art Diffusion Policy across all environments. Our results demonstrate that NoisyBCT enables both temporally consistent and reactive policy learning for dynamic robotic tasks.
+                <p class="text-justify", style="font-size: 18px;">
+                    Robotic imitation learning (IL) in dynamic environments—where object positions or external forces change unpredictably—poses a major challenge for current state-of-the-art methods. These methods often rely on multi-step, open-loop action execution for temporal consistency, but this approach hinders reactivity and adaptation under dynamic conditions. We propose <em>Noise Augmented Behavior Cloning Transformer</em> (NoisyBCT), a robust and responsive IL method that predicts single-step actions based on a sequence of past image observations. To mitigate the susceptibility to covariate shift that arises from longer observation horizons, NoisyBCT injects adversarial noise into low-dimensional spatial image embeddings during training. This enhances robustness to out-of-distribution states while preserving semantic content. We evaluate NoisyBCT on three simulated manipulation tasks and one real-world task, each featuring dynamic disturbances. NoisyBCT consistently outperforms the vanilla BC Transformer and the state-of-the-art Diffusion Policy across all environments. Our results demonstrate that NoisyBCT enables both temporally consistent and reactive policy learning for dynamic robotic tasks.
                 </p>
             </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <div style="text-align: center; margin-top: 40px; margin-bottom: 40px;">
+        <a href="https://github.com/noisy-bct/NoisyBCT" target="_blank" title="View Code on GitHub" style="
+          display: inline-flex;
+          align-items: center;
+          text-decoration: none;
+          font-family: sans-serif;
+          font-size: 16px;
+          color: black;
+          background-color: #f6f8fa;
+          border: 1px solid #d0d7de;
+          border-radius: 6px;
+          padding: 6px 10px;
+          gap: 8px;
+        ">
+          <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" width="20" height="20">
+          <span>Code</span>
+        </a>
+      </div>
+    <!-- Method Figure and Description -->
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-10 col-lg-8 mx-auto text-center">
+      <!-- Method Figure -->
+      <img src="imgs/NoisyBCT_architecture.png" alt="Method Overview" style="width: 70%; height: auto; border: none solid #ccc; border-radius: 8px; margin-bottom: 40px;">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10 col-lg-8 mx-auto">
+      <!-- Method Description -->
+      <p class="text-justify" style="font-size: 18px; line-height: 1.6;">
+        Our proposed approach, NoisyBCT, uses single-step action prediction coupled with a longer observation context, enabling reactive action execution while preserving temporal action consistency. To mitigate the increased risk of covariate shift that comes with extending the context, NoisyBCT applies a carefully designed noise augmentation scheme during training and inference. Crucially, noise perturbation is applied to the low-dimensional, spatial image representations produced by the (Resnet+SpatialSoftmax) vision backbone, encouraging robustness while preserving image semantics and intrinsic structure.
+      </p>
+    </div>
+  </div>
+  <div class="row mt-5">
+  <div class="col-md-10 col-lg-8 mx-auto">
+    <p class="text-justify" style="font-size: 18px; line-height: 1.6;">
+      NoisyBCT is evaluated on a set of challenging, dynamic robot tasks. We compare NoisyBCT with the vanilla BC transformer without noise augmentation, and with Diffusion Policy/Consistency Policy with varying action horizons.  
+    </p>
+    <h3 class="mt-4 mb-2">Simulation tasks</h3>
+    <!-- Centered YouTube video -->
+    <div class="ratio ratio-16x9">
+      <iframe src="videos/NoisyBCT_sim_videos.mp4" allowfullscreen></iframe>
+    </div>
+  </div>
+  <div style="margin-top: 20px;" class="col-md-10 col-lg-8 mx-auto">
+    <!-- Centered YouTube video -->
+    <div class="ratio ratio-16x9">
+      <iframe src="videos/NoisyBCT_sim_comparison.mp4" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+<div class="row mt-5">
+    <div class="col-md-10 col-lg-8 mx-auto text-center">
+      <!-- Method Figure -->
+      <img src="imgs/sim_results_table.png" alt="Method Overview" style="width: 100%; height: auto; border: none solid #ccc; border-radius: 8px; margin-bottom: 40px;">
+      <p class="text-justify" style="font-size: 18px; line-height: 1.6;">
+      NoisyBCT outperforms the baselines across all simulation tasks, exhibiting smooth and reactive control. 
+    </p>
+    </div>
+  </div>
+  <div class="row mt-5">
+  <div class="col-md-10 col-lg-8 mx-auto">
+    <h3 class="mt-4 mb-2">Real-world experiment</h3>
+    <!-- Centered YouTube video -->
+    <div class="ratio ratio-16x9">
+      <iframe src="videos/NoisyBCT_real_comparison.mp4" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+<div class="row mt-5">
+    <div class="col-md-10 col-lg-8 mx-auto text-center">
+      <!-- Method Figure -->
+      <img src="imgs/real_results_table.png" alt="Method Overview" style="width: 100%; height: auto; border: none solid #ccc; border-radius: 8px; margin-bottom: 40px;">
+      <p class="text-justify" style="font-size: 18px; line-height: 1.6;">
+      In the dynamic real-world experiment, the agents must place a hanging object in a narrow cup, while compensating for unpredictable actuator drift. NoisyBCT shows improved resilience, and significantly outperforms both vanilla BCT and Consistency Policy.
+    </p>
+    </div>
+  </div>
+<div style="margin-bottom: 40px;" class="row mt-5">
+    <div class="col-md-10 col-lg-8 mx-auto text-center">
+      <p class="text-justify" style="font-size: 18px; line-height: 1.6;">
+      The code used in the paper can be found at <a href="https://github.com/noisy-bct/NoisyBCT" target="_blank">github.com/noisy-bct/NoisyBCT</a>.
+    </p>
+    </div>
+  </div>
+</div>
 </body>
 </html>
